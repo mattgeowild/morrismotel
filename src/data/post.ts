@@ -1,5 +1,4 @@
 type MarkdownInstance = import('astro').MarkdownInstance<any>;
-// Which mode is the environment running in? https://vitejs.dev/guide/env-and-mode.html#intellisense-for-typescript
 const { MODE } = import.meta.env;
 
 export type Post = {
@@ -12,6 +11,7 @@ export type Post = {
 	date: string,
 	file: URL,
 	img: URL,
+	tags: string,
 }
 
 export function single(post: MarkdownInstance): Post {
@@ -35,8 +35,8 @@ export function published(posts: MarkdownInstance[]): Post[] {
 
 export function getRSS(posts: MarkdownInstance[]) {
 	return {
-		title: 'Astro Blog',
-		description: 'Astro Blog Feed',
+		title: 'Morris Motel',
+		description: 'Morris Motel Feed',
 		stylesheet: true,
 		customData: `<language>en-us</language>`,
 		items: published(posts).map((post: Post) => ({

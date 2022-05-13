@@ -7,14 +7,26 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['"Poppins"', "sans-serif"],
+        'sans': ['Public Sans', "sans-serif"],
+        'mono': ['Fira Code', "monospaced"]
       }
     }
   },
   daisyui: {
     themes: [
-      'night',
-      'winter',
-    ]
+      {
+        night: {
+          ...require("daisyui/src/colors/themes")["[data-theme=night]"],
+          "base-100": "#000",
+        }
+      },
+      {
+        winter: {
+          ...require("daisyui/src/colors/themes")["[data-theme=light]"],
+        },
+      },
+    ],
   }
 }
+
+

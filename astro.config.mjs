@@ -1,5 +1,6 @@
 import astroRemark from '@astrojs/markdown-remark';
 import { defineConfig } from "astro/config";
+import tailwind from '@astrojs/tailwind';
 import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
@@ -20,5 +21,5 @@ export default defineConfig(
 			}]
 		},
 		site: 'http://localhost:3000/',
-		integrations: [sitemap()]
+		integrations: [sitemap(), tailwind()]
 	});

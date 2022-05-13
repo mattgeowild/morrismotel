@@ -1,3 +1,5 @@
+@import url('/fonts/stylesheet.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,4 +7,36 @@
 .astro-code {
   border-radius: var(--rounded-box);
   padding: 1rem;
+}
+
+@layer utilities {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .logo-text {
+      font-family: 'Mabry Pro';
+      letter-spacing: -1px;
+      text-rendering: optimizeLegibility;
+  }
+  
+  .menu :where(li) > :where(*:not(ul)) {
+    padding: 0.5rem;
+    margin-right: 0.3rem;
+    margin-left: 0.3rem;
+  }
+  
+  .prose :where(h1):not(:where([class~="not-prose"] *)) {
+    margin-bottom: 0.1em !important;
+  }
+  
+  .badge {
+    padding: 0px;
+  }
+
+  body {
+    font-size:90%;
+  }
 }
