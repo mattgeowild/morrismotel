@@ -1,0 +1,39 @@
+---
+import MainHead from '../components/Head.astro';
+import Nav from '../components/Navbar.astro';
+import Article from '../components/article.astro';
+import authorData from '../data/authors.json';
+
+export async function getStaticPaths() {
+	const allPosts = await Astro.glob('../pages/posts/**/*.md');
+	let allAuthorsUnique = [...new Set(allPosts.map((p) => p.frontmatter.author))];
+	return allAuthorsUnique.map((author) => ({ params: { author }, props: { allPosts } }));
+}
+
+const { allPosts } = Astro.props;
+const title = 'Morris Motel';
+const description = 'Sail the high seas';
+
+/** filter posts by author, sort by date */
+const posts = allPosts.filter((post) => post.frontmatter.author === Astro.params.author).sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
+const author = authorData[posts[0].frontmatter.author];
+---
+
+<html lang="en">
+	<head>
+		<title>{title}</title>
+		<MainHead {title} {description} image={posts[0].frontmatter.image} canonicalURL={Astro.canonicalURL.toString()} />
+	</head>
+
+	<body>
+		<Nav/>
+
+		<main class="wrapper">
+			<h2 class="title">
+				<div class="avatar"><img class="avatar-img" src={author.image} alt="" /></div>
+				{author.name}
+			</h2>
+			{posts.map((post) => <Article post={post} author={author} />)}
+		</main>
+	</body>
+</html>

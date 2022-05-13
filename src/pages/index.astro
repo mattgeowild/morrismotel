@@ -1,14 +1,24 @@
 ---
 import { published } from "@data/post"
 import Blog from "@layouts/blog";
-import Preview from "@components/blog/preview";
+import Article from "@components/article";
 
-const markdownFiles = await Astro.glob('../content/**/*.md')
+const markdownFiles = await Astro.glob('../pages/posts/**/*.md')
 const posts = published( markdownFiles );
 ---
 
 <Blog>
+<div class="hero h-80 rounded-lg" style={`background-image: url(${posts[0].img});`}>
+  <div class="hero-overlay bg-slate-900/70 rounded-lg"></div>
+  <div class="hero-content text-center text-neutral-content">
+    <div class="max-w-md">
+      <h1 class="mb-5 text-4xl font-bold"><a href={`/posts/${posts[0].slug}`}>{posts[0].title}</a></h1>
+      <p class="mb-5">{posts[0].desc}</p>
+      <a class="btn btn-sm btn-primary" href={`/posts/${posts[0].slug}`}>Read</a>
+    </div>
+  </div>
+</div>
 	<div>
-		{posts.map((p) => <Preview post={p} />)}
+		{posts.slice(1).map((p) => <Article post={p} />)}
 	</div>
 </Blog>

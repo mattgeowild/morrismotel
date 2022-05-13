@@ -1,13 +1,22 @@
 ---
-import { nav } from "@data/nav"
+import { nav } from "@data/nav";
 ---
-  <footer class="footer footer-center p-4">
+
+<footer class="footer footer-center p-4">
   <div>
-    <p class="text-xs text-base-content/70">
-      &copy; {(new Date()).getFullYear()} – Morris Motel, Powered by
-      <a class="link" href="https://ipfs.io/" target="_blank">
-        IPFS
-      </a>
+    <nav class="footer-nav text-s">
+      <a class="menu-item" href="/privacypolicy/">Privacy</a>
+      <a class="menu-item" href="/contribute/">Contribute</a>
+      <a class="menu-item" href="mailto:contact@morrismotel.com"
+        >contact@morrismotel.com</a
+      >
+      <a class="menu-item" href="https://discord.gg/AMrV3yjC4y">Discord</a>
+      <a class="menu-item" href="https://matrix.to/#/#morrismotel:morrismotel.com">Matrix</a>
+    </nav>
+        <p class="text-xs text-base-content/70">
+      &copy; {new Date().getFullYear()} Morris Motel, Powered by
+      <a class="link" href="https://ipfs.io/" target="_blank"> IPFS </a>
     </p>
   </div>
+  
 </footer>

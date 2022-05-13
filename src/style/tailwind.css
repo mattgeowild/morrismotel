@@ -36,7 +36,11 @@
     padding: 0px;
   }
 
-  body {
-    font-size:90%;
+  .btn-ghost:hover, .btn-ghost.btn-active {
+    --tw-bg-opacity: 0.1;
   }
+}
+
+.footer-nav .menu-item {
+  margin: 0px 12px;
 }
