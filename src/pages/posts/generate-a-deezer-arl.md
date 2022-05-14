@@ -6,8 +6,8 @@ desc: "There are three methods to generate a Deezer Premium (or HiFi) account: t
 img: https://morrismotel.com/content/images/size/w1920/2022/03/Deezer-1.jpg
 imgWidth: 800
 imgHeight: 500
-tags: 
-    - music-piracy
+tags:
+  - music-piracy
 ---
 
 There are three methods to generate a Deezer Premium (or HiFi) account: the iBan method, the VCC method, and the BIN method. Let's go through them.

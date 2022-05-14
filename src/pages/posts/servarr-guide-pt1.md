@@ -6,8 +6,8 @@ desc: "So you're ready to take the plunge and build an automated media server? F
 img: https://morrismotel.com/content/images/size/w1920/2022/03/hero-blog-modern-layout-1-scaled-1.jpg
 imgWidth: 800
 imgHeight: 500
-tags: 
-    - servarr
+tags:
+  - servarr
 ---
 
 ## Setting up Servarr on Windows

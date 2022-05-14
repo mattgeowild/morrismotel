@@ -4,7 +4,7 @@ import Date from "@components/utilities/Date";
 import { published, getRSS } from "@data/post"
 
 export async function getStaticPaths({ rss }) {
-	const markdownFiles = await Astro.glob('../pages/posts/**/*.md');
+	const markdownFiles = await Astro.glob('./**/*.md');
 	const posts = published( markdownFiles );
 	
 	rss(getRSS(markdownFiles));
@@ -40,7 +40,8 @@ const { post: { Article }, post } = Astro.props;
 				</div>
 				<div class="flex gap-3">
 				{post.author &&
-					<span class="text-sm text-base-content/70">By {post.author}</span>
+				<img src={post.author.image} class="rounded-full" />
+					<span class="text-sm text-base-content/70">By {post.author.name}</span>
 				}
 			</div>
 			<div>

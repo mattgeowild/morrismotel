@@ -6,8 +6,8 @@ desc: "First, you need to download deemix from their official website. Personall
 img: https://morrismotel.com/content/images/size/w1920/2022/03/deemix-thumb.png
 imgWidth: 800
 imgHeight: 500
-tags: 
-    - music-piracy
+tags:
+  - music-piracy
 ---
 
 

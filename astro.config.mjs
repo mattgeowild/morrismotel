@@ -1,25 +1,16 @@
-import astroRemark from '@astrojs/markdown-remark';
-import { defineConfig } from "astro/config";
-import tailwind from '@astrojs/tailwind';
+import { defineConfig } from 'astro/config';
+import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
+import preact from '@astrojs/preact';
+import react from '@astrojs/react';
 
-// https://astro.build/config
-export default defineConfig(
-	/** @type {import('astro').AstroUserConfig} */
-	{
-		markdown: {
-			render: [astroRemark, {
-				remarkPlugins: [],
-				rehypePlugins: ['rehype-slug', ['rehype-autolink-headings', {
-					behavior: 'wrap'
-				}]],
-				shikiConfig: {
-					theme: 'poimandres',
-					langs: [],
-					wrap: false
-				}
-			}]
-		},
-		site: 'http://localhost:3000/',
-		integrations: [sitemap(), tailwind()]
-	});
+export default defineConfig({
+  shikiConfig: {
+    theme: "dracula",
+    langs: [],
+    wrap: true,
+  },
+  site: "http://localhost:3000/",
+  integrations: [sitemap(), tailwind(), preact(), react()],
+});
+
