@@ -1,7 +1,7 @@
 ---
-import Tags from '../../components/Tags.astro';
-import Article from '../../components/article.astro';
-import { getAllPosts } from '../../lib/posts.js';
+import Tags from '../components/Tags.astro';
+import Article from '../components/article.astro';
+import { getAllPosts } from '../lib/posts.js';
 
 export async function getStaticPaths({ rss }) {
     const allPosts = (await getAllPosts())
