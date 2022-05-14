@@ -18,7 +18,7 @@ export async function getStaticPaths({ rss }) {
 }
 
 // Destructure to get both `Astro.props.post` and `Astro.props.post.Content`
-const { post: { Article }, post } = Astro.props;
+const { post: { Content }, post } = Astro.props;
 ---
 <Blog title={post.title} desc={post.desc} img={post.img ? post.img : null}>
 	<div class="flex justify-center">
@@ -45,7 +45,7 @@ const { post: { Article }, post } = Astro.props;
 				}
 			</div>
 			<div>
-				<Article />
+				<Content />
 			</div>
 		</div>
 	</div>
