@@ -10,7 +10,7 @@ export async function getStaticPaths() {
 	return allAuthorsUnique.map((author) => ({ params: { author }, props: { allPosts } }));
 }
 
-const { allPosts } = Astro.props;
+const { allPosts } = Astro.props.post;
 const title = 'Morris Motel';
 const description = 'Sail the high seas';
 

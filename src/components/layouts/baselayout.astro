@@ -4,13 +4,13 @@ import Navbar from "@components/Navbar";
 import Footer from "@components/Footer";
 import ThemeChange from "@components/ThemeChange";
 import Head from '@components/Head'
-const { title, desc, img } = Astro.props;
+const content = Astro.props;
 ---
 <html lang="en">
 <Head
-	title={title}
-	desc={desc}
-	img={img}
+	title={content?.title}
+	desc={content?.desc}
+	img={content?.img}
 >	
 </Head>
 <body class="flex flex-col items-center h-screen">

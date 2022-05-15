@@ -4,9 +4,9 @@ import Navbar from "@components/Navbar";
 import Footer from "@components/Footer";
 import ThemeChange from "@components/ThemeChange";
 import Head from '@components/Head'
-const {title} = Astro.props;
-const {desc} = Astro.props;
-const {img} = Astro.props;
+const {title} = Astro.props.post;
+const {desc} = Astro.props.post;
+const {img} = Astro.props.post;
 ---
 <html lang="en">
 <Head

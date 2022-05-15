@@ -3,7 +3,7 @@ import BaseLayout from "./baselayout.astro";
 import Tag from "../tag.astro";
 import RelatedArticles from "../relatedArticles.astro";
 import { dateFilter } from "../../lib/dateFilter.js";
-const content = Astro.props.content;
+const content = Astro.props;
 console.log(content);
 // const isoDate = new Date(content.date).toISOString();
 ---
@@ -15,7 +15,7 @@ console.log(content);
     <h2 class=" text-xl px-2 font-bold break-words rounded-md box-decoration-clone" set:html={`By ${content.author}`}/>
     <h2 class=" text-xl px-2 font-bold break-words rounded-md box-decoration-clone" set:html={dateFilter(content.date)}/>
             <ul class="flex justify-center">
-          {content.tags.map((tag) => <Tag tag={tag} />)}
+          {content.content.tags.map((tag) => <Tag tag={tag} />)}
         </ul>
   </header>
 

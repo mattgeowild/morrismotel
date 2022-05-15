@@ -4,10 +4,11 @@ const siteInfo = {
   siteDesc: 'Sail the Seven Seas',
 }
 
-let {title} = Astro.props;
-let {desc} = Astro.props;
-let {img} = Astro.props;
-let {twitterUsername} = Astro.props;
+const content = Astro.props;
+let title = content?.title;
+let desc = content?.desc;
+let img = content?.img;
+let twitterUsername = content?.twitterUsername;
 
 if(!title) {
   title = siteInfo.siteName

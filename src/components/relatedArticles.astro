@@ -1,18 +1,18 @@
 ---
 import Article from "../components/article.astro";
 import { getAllPosts } from "../lib/posts.js";
-const { tags, currentPathname } = Astro.props;
+const content = Astro.props;
 const allPosts = await getAllPosts();
 
-const searchTagsCount = tags.length;
+const searchTagsCount = content.tags.length;
 const mappedTags = allPosts
-  .filter(({ url }) => url !== currentPathname)
+  .filter(({ url }) => url !== content.currentPathname)
   .filter(a => new Date(a.date) <= new Date())
   .sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf())
   .reduce(
     (filtered, article) => {
       // nice use of type coercion: true => 1, false => 0, so we can add a boolean to number here
-      const foundTagsCount = tags.reduce(
+      const foundTagsCount = content.tags.reduce(
         (count, tag) => count + article.tags.includes(tag),
         0
       );
@@ -36,7 +36,7 @@ const output = [...all, ...some, ...one, ...none];
 <div class="container md:mx-auto">
   <div class="mx-0 md:-mx-4 grid grid-cols-1 md:grid-cols-2">
   <code>{output[0]}</code>
-    <Article article={output[0]} />
-    <Article article={output[1]} />
+    <Article post={output[0]} />
+    <Article post={output[1]} />
   </div>
 </div>
