@@ -5,7 +5,7 @@ import Article from '../components/article.astro';
 import authorData from '../data/authors/authors.json';
 
 export async function getStaticPaths() {
-	const allPosts = await Astro.glob('../content/posts/**/*.md');
+	const allPosts = await Astro.glob('./posts/**/*.md');
 	let allAuthorsUnique = [...new Set(allPosts.map((p) => p.frontmatter.author))];
 	return allAuthorsUnique.map((author) => ({ params: { author }, props: { allPosts } }));
 }

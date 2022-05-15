@@ -2,7 +2,7 @@ async function load() {
   const fetchedPosts = import.meta.globEager('../content/posts/**/*.md');
   const mappedPosts = Object.keys(fetchedPosts).map((key) => {
     const post = fetchedPosts[key];
-    const url = key.replace('../content/', '/').replace('.md', '/');
+    const url = key.replace('../content/posts/', '/').replace('.md', '/');
     const item = { ...post.frontmatter, url };
     return item;
   });

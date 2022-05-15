@@ -1,18 +1,26 @@
 ---
-import type { Post } from '@data/post';
-const post: Post = Astro.props.post
+import { getReadingTime } from "../lib/readingtime.js";
+import { dateFilter } from "../lib/dateFilter.js";
+const content = Astro.props.post;
 ---
 
-<div class="py-6 flex flex-row-reverse gap-6 md:gap-10 items-start">
-	{post.img &&
-		<a href={`/posts/${post.slug}`} class="shrink-0">
-			<img src={`${post.img}`} alt={post.title} width="160" height="160" class="w-32 h-24 rounded bg-base-200 object-cover" />
-		</a>
-	}
-	<div class="flex flex-col gap-4">
-		<h2 class="text-2xl font-bold">
-			<a class="hover:underline" href={`/posts/${post.slug}`}>{post.title}</a>
-		</h2>
-		<p class="text-sm text-base-content/70">{post.desc}</p>
-	</div>
-</div>
+<article class="flex justify-between px-4 py-4 md:flex-col-reverse">
+  <div class="flex flex-col flex-1">
+    <a href={content?.url} class="flex-1">
+      <h3 class="text-xl font-medium leading-6 ease-in-out group-hover:text-barbie" set:html={content?.title}></h3>
+    </a>
+    <p class="flex flex-wrap items-center text-sm">
+      {dateFilter(content.date)}
+    </p>
+  </div>
+  <a
+    href={content?.url}
+    class="flex-none w-24 h-24 mb-0 ml-6 md:ml-0 md:h-auto md:w-auto aspect-none md:aspect-w-19 md:aspect-h-1 md:mb-4"
+  >
+    <img
+      class="object-cover w-full h-full transition-opacity rounded-xl drop-shadow group-hover:opacity-90"
+      alt={content?.title}
+      src={content?.img ?? "/images/fallback.png"}
+    />
+  </a>
+</article>

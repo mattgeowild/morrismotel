@@ -1,15 +1,15 @@
 ---
+layout: ../../components/layouts/post.astro
 title: "Downloading Music: Deemix"
 date: 2022-02-22
 author: "AnvilKilo"
-desc: "First, you need to download deemix from their official website. Personally, I use the GUI version, so that's what I'll be demonstrating, but there is a CLI if you'd like to try your hand with that."
+desc: "How do you download music with Deemix?"
 img: "https://morrismotel.com/content/images/size/w1920/2022/03/deemix-thumb.png"
 imgWidth: 800
 imgHeight: 500
 tags:
   - music-piracy
 ---
-
 
 First, you need to download deemix from their official [website](https://deemix.app/gui). Personally, I use the GUI version, so that's what I'll be demonstrating, but there is a CLI if you'd like to try your hand with that.
 image-2

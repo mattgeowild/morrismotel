@@ -1,0 +1,36 @@
+---
+import BaseLayout from "./baselayout.astro";
+import Tag from "../tag.astro";
+import RelatedArticles from "../relatedArticles.astro";
+import { dateFilter } from "../../lib/dateFilter.js";
+const content = Astro.props.post;
+// const isoDate = new Date(content.date).toISOString();
+---
+
+<BaseLayout title={content.title} description={content.desc} image={content.img} post={true}>
+  <header class="container mx-auto my-6 text-center">
+  <img src={content.image}/>
+    <h1 class="inline px-2 text-5xl font-bold break-words rounded-md box-decoration-clone" set:html={content.title}/>
+    <h2 class=" text-xl px-2 font-bold break-words rounded-md box-decoration-clone" set:html={`By ${content.author}`}/>
+    <h2 class=" text-xl px-2 font-bold break-words rounded-md box-decoration-clone" set:html={dateFilter(content.date)}/>
+            <ul class="flex justify-center">
+          {content.tags.map((tag) => <Tag tag={tag} />)}
+        </ul>
+  </header>
+
+  <section class="flex flex-col py-6 mb-6 -mx-4 border-b md:pb-10">
+    <div class="container mx-auto">
+      <article class="mx-4 prose dark:prose-invert md:mx-auto">
+        <slot />
+      </article>
+    </div>
+  </section>
+
+    <section class="-mx-4 md:bg-white md:dark:bg-dark md:pt-8">
+    <div class="container mx-auto ">
+      <RelatedArticles
+        tags={content.tags}
+      />
+    </div>
+  </section>
+</BaseLayout>

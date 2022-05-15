@@ -1,9 +1,10 @@
 ---
+layout: ../../components/layouts/post.astro
 title: "Media Server Setup Pt. 1: Plex"
 date: 2022-02-21
 author: MrMeatBones
 desc: "So you're ready to take the plunge and build an automated media server? Fantastic! This guide will take you through every required step, as well as some optional steps that I personally find to be quite useful."
-img: https://morrismotel.com/content/images/size/w1920/2022/03/hero-blog-modern-layout-1-scaled-1.jpg
+img: "https://morrismotel.com/content/images/size/w1920/2022/03/hero-blog-modern-layout-1-scaled-1.jpg"
 imgWidth: 800
 imgHeight: 500
 tags:
@@ -12,27 +13,27 @@ tags:
 
 ## Setting up Servarr on Windows
 
-So you're ready to take the plunge and build an automated media server? Fantastic! This guide will take you through every required step, as well as some optional steps that I personally find to be quite useful. By the end of this, you will have the following: a fully automated media search/download stack for movies, tv and music as well as the ability to stream it all from your home pc to any device you own using Plex. Parts of this guide will be objective fact, and some will be subjective, such as when we get to quality profiles. I will denote what is subjective when we get there. 
+So you're ready to take the plunge and build an automated media server? Fantastic! This guide will take you through every required step, as well as some optional steps that I personally find to be quite useful. By the end of this, you will have the following: a fully automated media search/download stack for movies, tv and music as well as the ability to stream it all from your home pc to any device you own using Plex. Parts of this guide will be objective fact, and some will be subjective, such as when we get to quality profiles. I will denote what is subjective when we get there.
 
 Some may look at this and be immediately disgusted that we’re using Plex instead of Jellyfin. And to those people I would simply say, click this link here. We have a Jellyfin side to this guide as well! Ain't that great.
 
 The requirements for this guide are pretty basic and are as follows:
 
-1. A Windows 7*/10/11 PC, either your main pc or a spare
+1. A Windows 7/10/11 PC, either your main pc or a spare
 2. An internet connection (duh)
 3. An understanding of how to port forward (Required for streaming outside of home)
 4. An understanding of how to use torrents if using torrents
 5. Relative confidence with the Windows platform
 
-*Windows 7 is technically supported, but it is STRONGLY recommended to upgrade to windows 10 before starting this
+Windows 7 is technically supported, but it is STRONGLY recommended to upgrade to windows 10 before starting this.
 
 With that out of the way, let’s begin!
 
 ## Installing Plex Media Server/Player
 
-First step is to create a plex account then install Plex as a media server, and the player if you plan to watch content from the same machine. Do ***not*** use the Plex web player if at all possible, it's total crap and we've had nothing but issues with it.
+First step is to create a plex account then install Plex as a media server, and the player if you plan to watch content from the same machine. Do **_not_** use the Plex web player if at all possible, it's total crap and we've had nothing but issues with it.
 
-We want to click this link [here](https://www.plex.tv/media-server-downloads/#plex-media-server) and select the latest PMS build for windows. Download and install that. 
+We want to click this link [here](https://www.plex.tv/media-server-downloads/#plex-media-server) and select the latest PMS build for windows. Download and install that.
 
 ![](https://lh5.googleusercontent.com/f2flxfvHaeV8xpJ0UXgNOvd1AQXmeuMP4FMiaNytCi_Ui4hKD8OGCoM_lpt3XTHYkvjQRbkhZk8PaioDR2-vjtR8Y4BQq4NdpQp4AtpeTcogG2ifQY0vBLylV9u8aF0RJpJNr_a0)
 
@@ -46,11 +47,11 @@ This is where you’re going to create your libraries. Click Add Library and sel
 ![](https://lh4.googleusercontent.com/sAAGmkhvDgcu8Z1q3Erm2UZ913KXFSG4NrXPqohP3RtO3-NgSa3i85fu1k7nQ2sQawbxuVe1WEeYV_RTwqML9Buxvu0pbl1-aybpBFZMRji-THbhDmyhgs0MoAcEp3-rpmErFCkq)
 Name the library if you want then click next.
 ![](https://lh6.googleusercontent.com/T19vRP6SvFEjpIonIAWepY2W3HFnOVX71HoKJKXrC0wpcAyfxewxqXRVdFMuq-5Lt2HJyThn9P8ajlY_7F-wuZBIodbCstiwgvhJdhzkbeq7TV01KEip9e3jcgVmjiMaTGEZbzCj)
-Now, open file explorer and create the actual folders where you’re going to store the media. Ours sit under D:\Plex but they can be wherever we want. 
+Now, open file explorer and create the actual folders where you’re going to store the media. Ours sit under D:\Plex but they can be wherever we want.
 
 ![](https://lh5.googleusercontent.com/gB_4JhTEMYv-JbWo0UduSzkMoRlYpvJaxAi1KxAU1apQAdP365FulRirqL8KREBioKkvfK6_2_Ab7OKidOMuBsUVsabBANBP5g6Jw57Ykaq6LFGYsCq5k8FMXNCspwYPj8-XT_DN)
 
-Next go back into your web browser and select “Browse For Media Folder”. Navigate to the correct folder and select it then select add folder. 
+Next go back into your web browser and select “Browse For Media Folder”. Navigate to the correct folder and select it then select add folder.
 
 ![](https://lh3.googleusercontent.com/36W5MHneMZZKHLhMdAXjcGD9pr0df2p6g3uisj0KGQSiYqhlWp3aPAba156dlzUXPM-pDaau25n_oMiVdbao7uat0-1eaLKt77cnoPmrmdGZVDyrsZmkeTrOTcbGSPUNj3z5D6OB)
 

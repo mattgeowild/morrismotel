@@ -4,9 +4,7 @@ import Navbar from "@components/Navbar";
 import Footer from "@components/Footer";
 import ThemeChange from "@components/ThemeChange";
 import Head from '@components/Head'
-const {title} = Astro.props;
-const {desc} = Astro.props;
-const {img} = Astro.props;
+const { title, desc, img } = Astro.props;
 ---
 <html lang="en">
 <Head
@@ -16,7 +14,7 @@ const {img} = Astro.props;
 >	
 </Head>
 <body class="flex flex-col items-center h-screen">
-	<div class="w-full max-w-3xl flex-grow">
+	<div class="w-full max-w-6xl flex-grow">
 		<Navbar>
 			<ThemeChange />
 		</Navbar>

@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["./src/**/*.{astro,html,svelte,vue,js,ts,jsx,tsx}"],
+  content: ["./src/**/*.{astro,html,svelte,vue,js,ts}"],
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
   theme: {
     extend: {

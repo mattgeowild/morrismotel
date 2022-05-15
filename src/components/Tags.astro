@@ -1,8 +1,8 @@
 ---
-import Tag from '../components/Tag.astro'
+import Tag from '../components/tag.astro'
 import { getAllPosts } from '../lib/posts'
 const allPosts = (await getAllPosts())
-  .filter((a) => new Date(a.date) <= new Date());
+  .filter((a: { date: string | number | Date; }) => new Date(a.date) <= new Date());
 const allTags = [...new Set(allPosts.reduce((prev, post) => {
     prev = prev.concat(post.tags);
     return prev;

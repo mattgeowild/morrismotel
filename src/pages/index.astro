@@ -1,25 +1,28 @@
 ---
 import { published } from "@data/post"
-import Blog from "@layouts/blog";
+import Blog from "@layouts/baselayout";
 import Article from "@components/article";
 
-const markdownFiles = await Astro.glob('../content/posts/**/*.md')
+const markdownFiles = await Astro.glob('./posts/**/*.md')
 const posts = published( markdownFiles );
 ---
 
 <Blog>
-<div class="hero h-80 rounded-lg" style={`background-image: url(${posts[0].img});`}>
-  <div class="hero-overlay bg-slate-900/70 rounded-lg"></div>
+<div class="hero h-80 rounded-xl mb-2" style={`background-image: url(${posts[0].img})`}>
+  <div class="hero-overlay bg-slate-900/70 rounded-xl"></div>
   <div class="hero-content text-center text-neutral-content">
     <div class="max-w-md">
-      <h1 class="mb-5 text-4xl font-bold"><a href={`/posts/${posts[0].slug}`}>{posts[0].title}</a></h1>
+      <h1 class="mb-2 text-4xl font-bold"><a href={`/posts/${posts[0].slug}`}>{posts[0].title}</a></h1>
       <p class="mb-5">{posts[0].desc}</p>
       <a class="btn btn-sm btn-primary mb-5" href={`/posts/${posts[0].slug}`}>Read</a>
-      <div class="badge badge-outline">{posts[0].tags}</div>
     </div>
   </div>
 </div>
-	<div>
-		{posts.slice(1).map((p) => <Article post={p} />)}
-	</div>
+  <section >
+    <div class="container md:mx-auto">
+      <div class="grid grid-cols-1 mx-0 md:-mx-4 md:grid-cols-3">
+        {posts.slice(1).map((p) => <Article post={p} />)}
+      </div>
+    </div>
+  </section>
 </Blog>
