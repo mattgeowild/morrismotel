@@ -1,10 +1,11 @@
 ---
 import Article from "../components/article.astro";
 import { getAllPosts } from "../lib/posts.js";
-const content = Astro.props;
+const content = Astro.props.post;
+const tags = content.tags
 const allPosts = await getAllPosts();
 
-const searchTagsCount = content.tags.length;
+const searchTagsCount = tags.length;
 const mappedTags = allPosts
   .filter(({ url }) => url !== content.currentPathname)
   .filter(a => new Date(a.date) <= new Date())
@@ -34,7 +35,7 @@ const output = [...all, ...some, ...one, ...none];
 ---
 
 <div class="container md:mx-auto">
-  <div class="mx-0 md:-mx-4 grid grid-cols-1 md:grid-cols-2">
+  <div class="mx-0 md:-mx-4 grid grid-cols-1 md:grid-cols-3">
   <code>{output[0]}</code>
     <Article post={output[0]} />
     <Article post={output[1]} />
