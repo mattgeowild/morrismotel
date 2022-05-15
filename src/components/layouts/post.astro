@@ -3,7 +3,8 @@ import BaseLayout from "./baselayout.astro";
 import Tag from "../tag.astro";
 import RelatedArticles from "../relatedArticles.astro";
 import { dateFilter } from "../../lib/dateFilter.js";
-const content = Astro.props.post;
+const content = Astro.props.content;
+console.log(content);
 // const isoDate = new Date(content.date).toISOString();
 ---
 
