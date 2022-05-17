@@ -1,9 +1,12 @@
+import { getReadingTime } from './readingtime.js';
+
 async function load() {
-  const fetchedPosts = import.meta.globEager('../content/posts/**/*.md');
+  const fetchedPosts = import.meta.globEager('../pages/posts/**/.md');
   const mappedPosts = Object.keys(fetchedPosts).map((key) => {
     const post = fetchedPosts[key];
-    const url = key.replace('../content/posts/', '/').replace('.md', '/');
+    const url = key.replace('../pages/', '/').replace('.md', '/');
     const item = { ...post.frontmatter, url };
+    item.readingTime = getReadingTime(post.astro.html);
     return item;
   });
 

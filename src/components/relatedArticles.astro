@@ -1,43 +1,28 @@
 ---
 import Article from "../components/article.astro";
-import { getAllPosts } from "../lib/posts.js";
+// import { getAllPosts } from "../lib/posts.js";
 const content = Astro.props.post;
-const tags = content.tags
-const allPosts = await getAllPosts();
+const tags = content.tags;
+// const allPosts = await getAllPosts();
+const allPosts = await Astro.glob('/src/pages/posts/**/*.md');
 
-const searchTagsCount = tags.length;
-const mappedTags = allPosts
-  .filter(({ url }) => url !== content.currentPathname)
-  .filter(a => new Date(a.date) <= new Date())
-  .sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf())
-  .reduce(
-    (filtered, article) => {
-      // nice use of type coercion: true => 1, false => 0, so we can add a boolean to number here
-      const foundTagsCount = content.tags.reduce(
-        (count, tag) => count + article.tags.includes(tag),
-        0
-      );
-      const amount =
-        searchTagsCount === foundTagsCount
-          ? "all"
-          : foundTagsCount > 1
-          ? "some"
-          : foundTagsCount
-          ? "one"
-          : "none";
-      filtered[amount].push(article);
-      return filtered;
-    },
-    { all: [], some: [], one: [], none: [] }
-  );
-const { all, some, one, none } = mappedTags;
-const output = [...all, ...some, ...one, ...none];
+// console.log(content.tags)
+// console.log(tags)
+const filtered = []
+allPosts.forEach((post) => post.frontmatter.tags.some((arr) => content.tags.indexOf(arr) >= 0) ? filtered.push(post) : console.log("nothing found"))
+// console.log(filtered)
+
+// const searchTagsCount = tags.length;
+// const mappedTags = allPosts
+//   .filter(({ title }) => title !== content.title)
+//   .filter(({ tags }) => tags[0] !== content.tags[0])
+
 ---
 
 <div class="container md:mx-auto">
   <div class="mx-0 md:-mx-4 grid grid-cols-1 md:grid-cols-3">
-  <code>{output[0]}</code>
-    <Article post={output[0]} />
-    <Article post={output[1]} />
+    <Article post={filtered[0]} />
+    <Article post={filtered[1]} />
+    <Article post={filtered[2]} />
   </div>
 </div>

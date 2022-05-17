@@ -1,15 +1,15 @@
 {
     "Cain": {
       "name": "Cain",
-      "image": "/authors/cain.jpg"
+      "image": "/src/data/authors/cain.png"
     },
     "MrMeatBones": {
       "name": "MrMeatBones",
-      "image": "/authors/mrmeatbones.jpg"
+      "image": "/src/data/authors/mrmeatbones.png"
     },
     "AnvilKilo": {
       "name": "K. Nova",
-      "image": "/authors/anvilkilo.jpg"
+      "image": "/src/data/authors/anvilkilo.jpeg"
     }
   }
   

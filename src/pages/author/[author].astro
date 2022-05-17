@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../../components/layouts/baselayout.astro";
+import Article from '../../components/article.astro';
+import authorData from '../../data/authors/authors.json';
+
+export async function getStaticPaths() {
+    const allPosts = await Astro.glob('../posts/**/*.md');
+    let allAuthorsUnique = [...new Set(allPosts.map((p) => p.frontmatter.author))];
+    return allAuthorsUnique.map((author) => ({
+        params: {
+            author
+        },
+        props: {
+            allPosts
+        }
+    }));
+}
+
+const { allPosts } = Astro.props;
+const title = 'Morris Motel';
+const description = 'Sail the high seas';
+
+const posts = allPosts.filter((post) => post.frontmatter.author === Astro.params.author).sort((a, b) => new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf());
+const author = authorData[posts[0].frontmatter.author];
+---
+
+<BaseLayout title={`Author - ${author.name}`} description={`Author page for ${author.name}`} image={author.image} post={false}>
+<div class="grid place-items-center">
+				<img class="avatar-img rounded-full w-48 h-48" src={author.image} alt="" />
+				<h1 class="text-7xl">{author.name}</h1>
+</div>
+    <div class="container md:mx-auto">
+      <div class="grid grid-cols-1 mx-0 md:-mx-4 md:grid-cols-4 place-items-center">
+        {posts.map((post) => <Article post={post.frontmatter} author={post.frontmatter.author} />)}
+      </div>
+    </div>
+</BaseLayout>

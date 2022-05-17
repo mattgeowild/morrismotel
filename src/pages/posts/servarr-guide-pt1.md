@@ -1,9 +1,9 @@
 ---
 layout: ../../components/layouts/post.astro
-title: "Media Server Setup Pt. 1: Plex"
+title: "Servarr Setup Pt. 1: Plex"
 date: 2022-02-21
 author: MrMeatBones
-desc: "So you're ready to take the plunge and build an automated media server? Fantastic! This guide will take you through every required step, as well as some optional steps that I personally find to be quite useful."
+desc: "So you're ready to take the plunge and build an automated media server? Fantastic! By the end of this, you will have the following: a fully automated media search/download stack for movies, tv and music as well as the ability to stream it all from your home pc to any device you own using Plex."
 img: "https://morrismotel.com/content/images/size/w1920/2022/03/hero-blog-modern-layout-1-scaled-1.jpg"
 imgWidth: 800
 imgHeight: 500

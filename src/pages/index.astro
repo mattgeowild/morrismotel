@@ -1,28 +1,29 @@
 ---
 import { published } from "@data/post"
-import Blog from "@layouts/baselayout";
+import BaseLayout from "@layouts/baselayout";
 import Article from "@components/article";
 
 const markdownFiles = await Astro.glob('./posts/**/*.md')
 const posts = published( markdownFiles );
+const latestPost = posts[0]
 ---
 
-<Blog>
-<div class="hero h-80 rounded-xl mb-2" style={`background-image: url(${posts[0].img})`}>
-  <div class="hero-overlay bg-slate-900/70 rounded-xl"></div>
+<BaseLayout>
+<div class="hero h-80 rounded-xl mb-2" style={`background-image: url(${latestPost.img})`}>
+  <div class="hero-overlay bg-black/90 rounded-xl"/>
   <div class="hero-content text-center text-neutral-content">
     <div class="max-w-md">
-      <h1 class="mb-2 text-4xl font-bold"><a href={`/posts/${posts[0].slug}`}>{posts[0].title}</a></h1>
-      <p class="mb-5">{posts[0].desc}</p>
-      <a class="btn btn-sm btn-primary mb-5" href={`/posts/${posts[0].slug}`}>Read</a>
+      <h1 class="mb-2 text-4xl font-bold text-white"><a href={`/posts/${latestPost.slug}`}>{latestPost.title}</a></h1>
+      <p class="mb-5">{latestPost.desc}</p>
+      <a class="btn btn-sm btn-primary mb-5" href={`/posts/${latestPost.slug}`}>Read</a>
     </div>
   </div>
 </div>
   <section >
     <div class="container md:mx-auto">
-      <div class="grid grid-cols-1 mx-0 md:-mx-4 md:grid-cols-3">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
         {posts.slice(1).map((p) => <Article post={p} />)}
       </div>
     </div>
   </section>
-</Blog>
+</BaseLayout>

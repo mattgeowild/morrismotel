@@ -2,35 +2,35 @@
 import BaseLayout from "./baselayout.astro";
 import Tag from "../tag.astro";
 import RelatedArticles from "../relatedArticles.astro";
+import { getReadingTime } from '../../lib/readingtime.js';
 import { dateFilter } from "../../lib/dateFilter.js";
 const content = Astro.props.content;
-const isoDate = new Date(content.date).toISOString();
+// console.log(content)
 ---
-
 <BaseLayout title={content.title} description={content.desc} image={content.img} post={true}>
-  <header class="container mx-auto my-6 text-center">
-  <img src={content.image}/>
-    <h1 class="inline px-2 text-5xl font-bold break-words rounded-md box-decoration-clone" set:html={content.title}/>
-    <h2 class="text-xl px-2 font-bold break-words rounded-md box-decoration-clone" set:html={dateFilter(content.date)}/>
-    <h3 class="text-lg px-2 font-bold break-words rounded-md box-decoration-clone" set:html={`By ${content.author}`}/>
-            <ul class="flex justify-center">
-          {content.tags.map((tag) => <Tag tag={tag} />)}
-        </ul>
-  </header>
+<div class="hero h-80 rounded-xl mb-2 overflow-hidden content-center text-white">
+  <img src={content.img} class="w-max"/>
+  <div class="hero-overlay bg-black/90 rounded-xl"/>
+  <div class="text-center">
+    <h1 class="text-5xl px-2 font-bold mb-3" set:html={content.title}/>
+    <p class="font-bold text-xl px-2" set:html={`By ${content.author}`}/>
+    <p class="text-lg px-2" set:html={dateFilter(content.date)}/>
+    <p class="text-md px-2" set:html={getReadingTime(content.astro.html)}/>
+    <ul class="flex justify-center">
+      {content.tags.map((tag) => <Tag tag={tag} />)}
+    </ul>
+  </div>
+</div>
 
-  <section class="flex flex-col py-6 mb-6 -mx-4 border-b md:pb-10">
+  <section class="flex flex-col py-6 mb-6 -mx-4 md:pb-10">
     <div class="container mx-auto">
-      <article class="mx-4 prose dark:prose-invert md:mx-auto">
+      <article class="mx-4 prose dark:prose-invert md:mx-auto place-items-center">
         <slot />
       </article>
-    </div>
-  </section>
-
-    <section class="-mx-4 md:pt-8">
-    <div class="container mx-auto ">
-      <RelatedArticles
+                <RelatedArticles
         post={content}
       />
     </div>
+
   </section>
 </BaseLayout>
