@@ -1,6 +1,7 @@
 ---
 layout: ../../components/layouts/post.astro
 title: "How to Use qBitTorrent"
+slug: qbittorrent-guide
 date: 2022-02-22
 author: EgoDeer
 desc: "qBitTorrent is one of the most popular torrent downloaders. But how do you use it properly?"
@@ -12,13 +13,18 @@ tags:
 ---
 ## Table of Contents:
 
-- [Why use qBittorrent?](#why-use-qbittorrent)
-- [Installation Process](#installation-process)
-- [Setting qBittorrent Up](#setting-qbittorrent-up)
-- [How to Download a Torrent File](#how-to-download-a-torrent-file)
-- [How to Seed a Torrent File](#how-to-seed-a-torrent-file)
-- [How to Change the UI Theme](#how-to-change-the-ui-theme)
-- [How To Add Plug-ins to qBittorrent](#how-to-add-plug-ins-to-qbittorrent) (Thanks to Pope Sidious)
+- [Table of Contents:](#table-of-contents)
+- [**Why use qBittorrent?**](#why-use-qbittorrent)
+- [**Installation Process**](#installation-process)
+- [!](#)
+- [**Setting qBittorrent Up**](#setting-qbittorrent-up)
+- [!](#-1)
+- [**How to Download a Torrent File**](#how-to-download-a-torrent-file)
+- [**How to Seed a Torrent File**](#how-to-seed-a-torrent-file)
+- [!](#-2)
+- [**How to Change the UI Theme**](#how-to-change-the-ui-theme)
+- [!](#-3)
+- [How To Add Plug-ins to qBittorrent](#how-to-add-plug-ins-to-qbittorrent)
 
 ## **Why use qBittorrent?**
 

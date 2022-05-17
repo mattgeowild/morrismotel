@@ -1,6 +1,7 @@
 ---
 layout: ../../components/layouts/post.astro
 title: "Downloading Music: Deemix"
+slug: downloading-music-deemix
 date: 2022-02-22
 author: "AnvilKilo"
 desc: "How do you download music with Deemix?"
