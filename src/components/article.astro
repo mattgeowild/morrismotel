@@ -2,20 +2,20 @@
 import { getReadingTime } from '../lib/readingtime.js';
 import { dateFilter } from "../lib/dateFilter.js";
 import { get } from "../lib/get.js"
-console.log(await get())
-const { frontmatter, Content } = Astro.props.post;
+// console.log(await get())
+const post = Astro.props.post;
 ---
 <article class="flex justify-between py-4 group md:flex-col-reverse">
   <div class="flex flex-col flex-1">
-    <a href={`/posts/${frontmatter?.slug}`}>
+    <a href={`/posts/${post?.slug || post?.frontmatter?.slug}`} class="no-underline">
       <h3
         class="text-xl font-medium leading-6"
-        set:html={frontmatter?.title}
+        set:html={post?.title || post?.frontmatter?.title}
       >
       </h3>
     </a>
     <p class="flex flex-wrap items-center text-sm">
-      {dateFilter(frontmatter?.date)} ·<svg
+      {dateFilter(post?.date || post?.frontmatter?.date)} ·<svg
         xmlns="http://www.w3.org/2000/svg"
         fill="currentColor"
         class="w-5 h-5 ml-1 mr-1"
@@ -27,13 +27,13 @@ const { frontmatter, Content } = Astro.props.post;
       <!-- {getReadingTime(get())} -->
     </p>
   </div>
-  <a href={`/posts/${frontmatter?.slug}`}
+  <a href={`/posts/${post?.slug || post?.frontmatter?.slug}`}
     class="flex-none w-24 h-24 md:h-auto md:w-auto aspect-none md:aspect-w-19 md:aspect-h-1 md:mb-4"
   >
     <img
       class="object-cover md:w-80 md:h-48 w-24 h-24 transition-opacity rounded-lg drop-shadow group-hover:opacity-90"
-      alt={frontmatter?.title}
-      src={frontmatter?.img ?? "/images/fallback.png"}
+      alt={post?.title || post?.frontmatter?.title}
+      src={(post?.img  || post?.frontmatter?.img) ?? "/images/fallback.png"}
     />
   </a>
 </article>

@@ -1,28 +1,9 @@
 ---
 import Article from "../components/article.astro";
-// import { getAllPosts } from "../lib/posts.js";
 const content = Astro.props.post;
-const tags = content.tags;
-// const allPosts = await getAllPosts();
-const allPosts = await Astro.glob('/src/pages/posts/**/*.md');
-
-// console.log(content.tags)
-// console.log(tags)
-const filtered = []
-allPosts.forEach((post) => post.frontmatter.tags.some((arr) => content.tags.indexOf(arr) >= 0) ? filtered.push(post) : console.log("nothing found"))
-// console.log(filtered)
-
-// const searchTagsCount = tags.length;
-// const mappedTags = allPosts
-//   .filter(({ title }) => title !== content.title)
-//   .filter(({ tags }) => tags[0] !== content.tags[0])
-
+const allPosts = await Astro.glob('../pages/posts/**/*.md');
+const filtered = allPosts.filter((el) => content.tags.some(x => el.frontmatter.tags.includes(x)) && (content.title !== el.frontmatter.title))
 ---
-
-<div class="container md:mx-auto">
-  <div class="mx-0 md:-mx-4 grid grid-cols-1 md:grid-cols-3">
-    <Article post={filtered[0]} />
-    <Article post={filtered[1]} />
-    <Article post={filtered[2]} />
-  </div>
+<div class="mx-0 md:-mx-4 grid grid-cols-1 md:grid-cols-3">
+  {filtered.map((p) => <Article post={p} />)}
 </div>
