@@ -49,3 +49,14 @@
 .footer-nav .menu-item {
   margin: 0px 12px;
 }
+
+@media (prefers-color-scheme: light) {
+  .shiki.github-dark {
+    display: none;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .shiki.github-light {
+    display: none;
+  }
+}

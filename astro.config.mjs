@@ -4,12 +4,7 @@ import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   markdown: {
-    remarkPlugins: [ 'remark-reading-time' ],
-  },
-  shikiConfig: {
-    theme: "dracula",
-    langs: [],
-    wrap: true,
+    remarkPlugins: [ ],
   },
   site: "http://localhost:3000/",
   integrations: [sitemap(), tailwind()],

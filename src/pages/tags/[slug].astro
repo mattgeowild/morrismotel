@@ -3,7 +3,6 @@ import Tags from '../../components/Tags.astro';
 import Article from '../../components/article.astro';
 import { getAllPosts } from '../../lib/posts.js';
 
-// console.log(getAllPosts())
 export async function getStaticPaths({ rss }) {
     const allPosts = (await getAllPosts())
       .filter((a) => new Date(a.date) <= new Date());

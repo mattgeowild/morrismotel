@@ -1,9 +1,8 @@
 ---
 import Article from "../components/article.astro";
-const content = Astro.props.post;
+const props = Astro.props;
+const post = props.post;
 const allPosts = await Astro.glob('../pages/posts/**/*.md');
-const filtered = allPosts.filter((el) => content.tags.some(x => el.frontmatter.tags.includes(x)) && (content.title !== el.frontmatter.title))
+const filtered = allPosts.filter((el) => post.content.tags.some(x => el.frontmatter.tags.includes(x)) && (post.content.title !== el.frontmatter.title))
 ---
-<div class="mx-0 md:-mx-4 grid grid-cols-1 md:grid-cols-3">
-  {filtered.map((p) => <Article post={p} />)}
-</div>
+{filtered.map((p) => <div class="carousel-item"><Article post={p} /></div>)}

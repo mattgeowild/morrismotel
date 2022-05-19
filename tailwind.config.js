@@ -1,11 +1,12 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   content: ["./src/**/*.{astro,html,svelte,vue,js,ts}"],
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Public Sans", "sans-serif"],
-        mono: ["Fira Code", "monospaced"],
+        sans: ["Public Sans", "sans-serif", ...defaultTheme.fontFamily.sans],
+        mono: ["Fira Code", "monospaced", ...defaultTheme.fontFamily.mono],
       },
     },
   },

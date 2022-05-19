@@ -1,35 +1,37 @@
 ---
-import BaseLayout from "./baselayout.astro";
-import Tag from "../tag.astro";
-import RelatedArticles from "../relatedArticles.astro";
-import { getReadingTime } from '../../lib/readingtime.js';
-import { dateFilter } from "../../lib/dateFilter.js";
-const content = Astro.props.content;
-// console.log(content)
+  import BaseLayout from "./baselayout.astro";
+  import Tag from "../tag.astro";
+  import RelatedArticles from "../relatedArticles.astro";
+  import { getReadingTime } from '../../lib/readingtime.js';
+  import { dateFilter } from "../../lib/dateFilter.js";
+  const post = Astro.props;
 ---
-<BaseLayout title={content.title} description={content.desc} image={content.img} post={true}>
-<div class="hero h-80 rounded-2xl mb-2 overflow-hidden content-center text-white">
-  <img src={content.img} class="w-max"/>
-  <div class="hero-overlay bg-black/80 rounded-2xl"/>
-  <div class="text-center">
-    <h1 class="text-5xl px-2 font-bold mb-3" set:html={content.title}/>
-    <p class="font-bold text-xl px-2" set:html={`By ${content.author}`}/>
-    <p class="text-lg px-2" set:html={dateFilter(content.date)}/>
-    <p class="text-md px-2" set:html={getReadingTime(content.astro.html)}/>
-    <ul class="flex justify-center">
-      {content.tags.map((tag) => <Tag tag={tag} />)}
-    </ul>
-  </div>
-</div>
 
-  <section class="flex flex-col py-6 mb-6 -mx-4 md:pb-10">
+<BaseLayout title={post.content.title} description={post.content.desc} image={post.content.img} post={true}>
+  <div class="hero h-80 rounded-2xl mb-10 overflow-hidden content-center text-white">
+    <img src={post.content.img} class="w-max" />
+    <div class="hero-overlay bg-black/80 rounded-2xl" />
+    <div class="text-center">
+      <h1 class="text-5xl px-2 font-bold mb-3" set:html={post.content.title} />
+      <p class="font-bold text-xl px-2" set:html={`By ${post.content.author}`} />
+      <p class="text-lg px-2" set:html={dateFilter(post.content.date)} />
+      <p class="text-md px-2" set:html={getReadingTime(post.content.astro.html)} />
+      <ul class="flex justify-center">
+        {post.content.tags.map((tag) =>
+        <Tag tag={tag} />)}
+      </ul>
+    </div>
+  </div>
+
+  <section class="flex flex-col mb-6 md:mb-10">
     <div class="container mx-auto">
-      <article class="mx-4 prose dark:prose-invert md:mx-auto place-items-center">
+      <article class="prose dark:prose-invert md:mx-auto mb-10">
         <slot />
-                       <RelatedArticles
-        post={content}
-      />
-      </article> 
+      </article>
+    </div>
+    <h2 class="text-3xl mb-1">Related Articles:</h2>
+    <div class="md:carousel md:carousel-end md:space-x-4 overflow-hidden">
+      <RelatedArticles post={post} />
     </div>
 
   </section>
