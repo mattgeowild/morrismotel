@@ -1,18 +1,14 @@
 ---
-import Tag from '../components/tag.astro'
-import { getAllPosts } from '../lib/posts'
-const allPosts = (await getAllPosts())
-  .filter((a: { date: string | number | Date; }) => new Date(a.date) <= new Date());
-const allTags = [...new Set(allPosts.reduce((prev, post) => {
-    prev = prev.concat(post.tags);
-    return prev;
-}, []))];
-const { slug } = Astro.params;
+    import { getAllPosts } from '../lib/posts'
+    const posts = await Promise.all(await getAllPosts())
+    const allTags = [...new Set(posts.flatMap(({ tags }) => tags))]
 ---
-    
-<nav class="container mx-auto mb-4" aria-label="Tag">
-    <ul class="flex flex-wrap">
-        <li><a href="/archive" class={`${slug === undefined ? 'bg-purple-500 text-white' : 'bg-purple-200'} block p-2 mr-2 mb-2 text-sm rounded-xl font-medium`}>All</a></li>
-        {allTags.map(tag => <Tag tag={tag}/>)}
+
+<div class="text-center mb-10">
+    <ul class="inline-block">
+        {allTags.map(tag =>
+        <li class="float-left"><a role="button" href={`/tags/${tag}`}
+                class='hover:text-accent hover:bg-base-content transition-colors duration-200 mx-2 text-sm rounded-xl font-medium btn btn-outline'>#{tag}</a>
+        </li>)}
     </ul>
-</nav>
+</div>

@@ -1,6 +1,5 @@
 ---
   import BaseLayout from "./baselayout.astro";
-  import Tag from "../tag.astro";
   import RelatedArticles from "../relatedArticles.astro";
   import { getReadingTime } from '../../lib/readingtime.js';
   import { dateFilter } from "../../lib/dateFilter.js";
@@ -9,28 +8,32 @@
 
 <BaseLayout title={post.content.title} description={post.content.desc} image={post.content.img} post={true}>
   <div class="hero h-80 rounded-2xl mb-10 overflow-hidden content-center text-white">
-    <img src={post.content.img} class="w-max" />
+    <img src={post.content.img} class="bg-cover" />
     <div class="hero-overlay bg-black/80 rounded-2xl" />
     <div class="text-center">
-      <h1 class="text-5xl px-2 font-bold mb-3" set:html={post.content.title} />
-      <p class="font-bold text-xl px-2" set:html={`By ${post.content.author}`} />
+      <h1 class="text-3xl md:text-5xl px-2 font-bold mb-3" set:html={post.content.title} />
+      <a class="font-bold text-xl px-2 hover:text-blue-500 transition-colors duration-200"
+        href={`/author/${post.content.author}`} set:html={`By ${post.content.author}`} />
       <p class="text-lg px-2" set:html={dateFilter(post.content.date)} />
       <p class="text-md px-2" set:html={getReadingTime(post.content.astro.html)} />
       <ul class="flex justify-center">
         {post.content.tags.map((tag) =>
-        <Tag tag={tag} />)}
+        <li class="float-left"><a href={`/tags/${tag}`}
+            class='hover:text-blue-500 transition-colors duration-200 mx-2 text-sm rounded-xl font-medium'>#{tag}</a>
+        </li>)}
       </ul>
     </div>
   </div>
 
   <section class="flex flex-col mb-6 md:mb-10">
     <div class="container mx-auto">
-      <article class="prose dark:prose-invert md:mx-auto mb-10">
+      <article class="prose dark:prose-invert md:mx-auto !max-w-full mb-10">
         <slot />
       </article>
     </div>
+    <hr class="mb-10">
     <h2 class="text-3xl mb-1">Related Articles:</h2>
-    <div class="md:carousel md:carousel-end md:space-x-4 overflow-hidden">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-y-10">
       <RelatedArticles post={post} />
     </div>
 

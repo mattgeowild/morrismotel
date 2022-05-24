@@ -3,13 +3,17 @@
       "name": "Cain",
       "image": "/src/data/authors/cain.png"
     },
+    "AnvilKilo": {
+      "name": "AnvilKilo",
+      "image": "/src/data/authors/anvilkilo.jpeg"
+    },
     "MrMeatBones": {
       "name": "MrMeatBones",
       "image": "/src/data/authors/mrmeatbones.png"
     },
-    "AnvilKilo": {
-      "name": "K. Nova",
-      "image": "/src/data/authors/anvilkilo.jpeg"
+    "EgoDeer": {
+      "name": "EgoDeer",
+      "image": "/src/data/authors/egodeer.jpg"
     }
   }
   

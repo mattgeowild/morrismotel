@@ -1,60 +1,39 @@
 ---
-import Tags from '../../components/Tags.astro';
-import Article from '../../components/article.astro';
-import { getAllPosts } from '../../lib/posts.js';
+  import BaseLayout from "../../components/layouts/baselayout.astro";
+  import Tags from '../../components/Tags.astro';
+  import Article from '../../components/article.astro';
+  import { getAllPosts } from '../../lib/posts.js';
 
-export async function getStaticPaths({ rss }) {
-    const allPosts = (await getAllPosts())
-      .filter((a) => new Date(a.date) <= new Date());
+  export async function getStaticPaths({ rss }) {
+    const posts = await Promise.all(await getAllPosts())
+    const allTags = [...new Set(posts.flatMap(({ tags }) => tags))]
 
-  const allTags = [
-    ...new Set(
-      allPosts.reduce((prev, post) => {
-        prev = prev.concat(post.tags);
-        return prev;
-      }, [])
-    ),
-  ];
+    return allTags.map((tag) => {
+      const postsForTag = posts.filter((post) => post.tags.includes(tag));
+      return {
+        params: { slug: tag },
+        props: { allTags, postsForTag },
+      };
+    });
+  }
 
-  rss({
-    title: 'Morris Motel',
-    description: 'Sail the seven seas.',
-    items: allPosts.map((post) => ({
-      title: post.title,
-      description: post.desc,
-      link: post.url,
-      pubDate: post.date,
-    })),
-    dest: 'sitemap.xml',
-  });
-
-  return allTags.map((tag) => {
-    const postsForTag = allPosts.filter((post) => post.tags.includes(tag));
-    return {
-      params: { slug: tag },
-      props: { allTags, postsForTag },
-    };
-  });
-}
-
-const { slug } = Astro.params;
-const { allTags, postsForTag } = Astro.props.post;
+  const tag = Astro.params.slug
+  const postsForTag = Astro.props.postsForTag
 ---
 
-  <header class="container mx-auto my-6">
-    <h1 class="mb-8 text-4xl font-extrabold text-gray-900 dark:text-white">
-      All posts tagged with \#{slug}
-    </h1>
-  </header>
+<BaseLayout title={`Tags - ${tag}`} description={`Tags for ${tag}`} post={false}>
+  <h1 class="mb-4 text-4xl font-extrabold text-center" color="currentColor">
+    All posts tagged with #{tag}
+  </h1>
 
   <Tags />
 
-  <section
-    class="mb-10 -mx-4"
-  >
+  <section class="mb-10 -mx-4">
     <div class="container md:mx-auto">
-      <div class="grid grid-cols-1 mx-0 md:-mx-4 md:grid-cols-2 md:py-4">
-        {postsForTag.map((post) => <Article post={post} />)}
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-10">
+        {postsForTag.map((p) =>
+        <Article post={p} />)}
       </div>
     </div>
   </section>
+</BaseLayout>

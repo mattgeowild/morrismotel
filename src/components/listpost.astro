@@ -1,0 +1,13 @@
+---
+    import { dateFilter } from "../lib/dateFilter.js";
+    const post = Astro.props.post;
+---
+
+<ul>
+    <li>
+        <a href={`/posts/${post?.slug || post?.frontmatter?.slug}`}
+            class="hover:text-accent transition-colors duration-200">
+            {post.title}
+        </a>
+    </li>
+</ul>
