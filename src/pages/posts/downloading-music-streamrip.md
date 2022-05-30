@@ -5,7 +5,7 @@ slug: downloading-music-streamrip
 date: 2022-02-22
 author: Cain
 desc: "There are quite a few methods to rip music from streaming services. Streamrip is arguably the best one out there. It supports Qobuz, Deezer, TIDAL, Soundcloud, and YouTube."
-img: "https://i.ibb.co/KKHmngD/guidetostreamrip.png"
+img: "/images/downloading-music-streamrip/thumb.png"
 imgWidth: 800
 imgHeight: 500
 tags:
@@ -20,7 +20,7 @@ There are quite a few methods to rip music from streaming services. Streamrip is
 #### Prerequisites:
 
 - [Python](https://www.python.org/downloads/) v3.8+ and [pip](https://pip.pypa.io/en/stable/installing/)
-- [Microsoft Visual C++ Tools](https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170)**(Windows Only)**
+- [Microsoft Visual C++ Tools](https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170) **(Windows Only)**
 - [ffmpeg](https://ffmpeg.org/download.html) (Necessary for conversions, TIDAL videos, and SoundCloud)
 - [youtube-dl](https://github.com/ytdl-org/youtube-dl#installation) (Necessary for YouTube downloading)
 

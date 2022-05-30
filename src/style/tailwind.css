@@ -32,6 +32,10 @@
     margin-bottom: 0.1em !important;
   }
 
+  .prose :where(img):not(:where([class~="not-prose"] *)) {
+    max-width: 50% !important;
+  }
+
   .badge {
     padding: 0px;
   }

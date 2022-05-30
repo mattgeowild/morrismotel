@@ -5,7 +5,7 @@ slug: create-a-matrix-server
 date: 2022-04-22
 author: "Cain"
 desc: "Matrix is a decentralized and open source chat protocol, which encourages users to launch their own homeserver."
-img: "https://morrismotel.com/content/images/size/w1920/2022/04/matrix-logo@2x.png"
+img: "/images/create-a-matrix-server/thumb.png"
 imgWidth: 800
 imgHeight: 500
 tags:
@@ -45,7 +45,7 @@ Start docker and enable it to run at startup using `systemctl start docker && sy
 You'll first need to point your subdomain to the server IP address using an A record by going to the dashboard of your domain provider and adding it.
 
 Porkbun looks like this.
-![](__GHOST_URL__/content/images/2022/04/Screenshot-04-23-2022-at-20.08.58.png)
+![](/images/create-a-matrix-server/image1.png)
 Now it's time to configure Caddy. First, make sure your server is up to date using `apt update -y && apt upgrade -y`. 
 
 Then add the prerequesites, Caddy GPG key and repository, update it, and install it.

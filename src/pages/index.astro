@@ -3,7 +3,6 @@
   import Article from "@components/article";
   import ListPost from "@components/listpost";
   import { getAllPosts } from "src/lib/posts";
-  import Test from "@components/test"
   const posts = await Promise.all(await getAllPosts())
   const allTags = [...new Set(posts.flatMap(({ tags }) => tags))]
   const latestPost = posts[0]
@@ -15,25 +14,26 @@
     <div class="hero-content text-center text-neutral-content">
       <div class="max-w-md">
         <h1 class="mb-2 text-4xl font-bold text-white"><a href={`/posts/${latestPost.slug}`}>{latestPost.title}</a></h1>
-        <p class="mb-5">{latestPost.desc}</p>
+        <p>{latestPost.desc}</p>
+        <h5 class="mb-5 tracking-normal">MOST RECENT ARTICLE</h5>
         <a class="btn btn-sm btn-primary mb-5" href={`/posts/${latestPost.slug}`}>Read</a>
       </div>
     </div>
   </div>
-  <section>
-    <h2 class="text-3xl mb-1">Featured Articles:</h2>
+  <div class="mb-16">
+    <h2 class="text-3xl mb-1">Latest Articles:</h2>
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-10">
-      {posts.slice(1, 5).map((p) =>
+      {posts.sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf()).slice(1, 5).map((p) =>
       <Article post={p} />)}
     </div>
-  </section>
+  </div>
   <section>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 mt-5">
     {allTags.map(tag => (
       <div>
       <header class="border-b border-current mb-2"><a href={`/tags/${tag}`}
       class='hover:text-accent transition-colors duration-200 text-xl font-medium'><h2 class="inline mr-4">#{tag}</h2><p class="inline text-sm">{posts.filter((post) => post.tags.includes(tag)).length} {posts.filter((post) => post.tags.includes(tag)).length < 2 ? 'article' : 'articles'}</p></a></header>
-      {posts.filter((post) => post.tags.includes(tag)).map(p => <ListPost post={p}/>)}
+      {posts.filter((post) => post.tags.includes(tag)).sort((a, b) => a.title.localeCompare(b.title)).map(p => <ListPost post={p}/>)}
       </div>
     ))}
     </div>

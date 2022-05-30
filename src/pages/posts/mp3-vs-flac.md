@@ -5,7 +5,7 @@ slug: mp3-vs-flac
 date: 2022-04-22
 author: Cain
 desc: "MPEG (The Moving Picture Experts Group) has developed compression systems used for video data. FLAC stands for Free Lossless Audio Codec."
-img: "https://morrismotel.com/content/images/size/w1920/2022/03/photo-1561175915-39602003cb5a.jpg"
+img: "/images/mp3-vs-flac/thumb.jpg"
 imgWidth: 800
 imgHeight: 500
 tags:
@@ -30,12 +30,12 @@ Like MP3 before it, FLAC has been embraced by the music industry as a cost-effec
 
 ## Conclusion:
 
-- Get MP3 for everyday listening & DJing in clubs, pubs, bars & festivals.
+### Get MP3 for everyday listening & DJing in clubs, pubs, bars & festivals.
 
 Reasons: MP3 is a lossy format. As said before human hearing is not perfect which is why it is harder to hear the difference between lossless (FLAC) and lossy file (MP3). This difference is almost harder to hear on everyday devices like Wireless headphones, Earphones, TWS, Home theatres, Car speaker systems, Bluetooth speakers etc. Also MP3 are compact files. So, it makes it easier to store in small storage devices(SD card, pendrives, Floppy disks ;), Mobile phones, portable music players etc.) The clubs, pubs, & bars have mediocre to high-mid tier speakers, which may already sound distorted or can't produce better output(like background cymbals, arps, pads, effects) and add crowd noise on that. Even if you are playing in an empty club MP3 are good enough. And finally the festivals. This is a DEBATABLE Subject. Festivals have massive setups with high quality monitors at DJ booth. If you play 320kbps MP3s on these setups you may begin to notice distortion in sound and if you go lower than that chances are crowd will throw there drinks on the booth. BUT this distortion can only be heard if you are playing this in empty venue. Because of crowd noise, resonance & other factors, it is almost impossible to notice any difference if you play 320kbps MP3 or a FLAC file. So it's fine to play with MP3s as long as it's 320KBPS.
 
-- Get FLAC for Archiving Purposes, Music Production.
+### Get FLAC for Archiving Purposes, Music Production.
 
 Reasons: FLAC is a lossless format. FLAC is used when playing on Professional Monitors (Speakers) and Professional headphones but even if you have these you will have to put 100% of your concentration to listen the differences between FLAC & MP3 file. As people with peculiar taste might know it is harder to get songs of indie/underrated artists in lossless format and they get lost under piles of webpages. This is the reason why hoarders hoard terrabytes of songs in FLAC & WAV formats. FLAC is great for archiving purpose as in future if storage becomes an issue, it can be converted into MP3. In music production WAV (RAW format) files are standard. Major soundpacks are always in wav formats. BUT producers have also started using soundpacks in FLAC formats to battle the storage needs WAV packs require. The difference between FLAC & WAV is negligible. Hence FLAC becomes great alternative when storage is the question.
 
-**TL;DR: Use MP3s when listening casually or DJing anywhere. FLACs for Archiving Purposes & Music Production or playing on top tier setups.**
+**TL;DR: Use MP3s when listening casually or DJing anywhere. FLACs for archiving purposes & music production or playing on top tier setups.**
