@@ -33,7 +33,17 @@ For the more tech inclined, Linux might be the compelling option. There are coun
 There are a few large drawbacks. The biggest one, being the fact that it's Linux. Personally I love Linux and if I could daily drive it for gaming I would. But the truth is, Linux in *every* flavor is the lowest used operating system in the consumer space. Its also the hardest to learn. Even harder still, is that fact that Ubuntu Server has no GUI, meaning you **have** to use the command line. Don't get me wrong, its entirely possible to learn and a fantastic thing to know, but it definitely has a learning curve. Setting up my first plex server on Linux was my first foray into it so when I tell you its possible, I promise its possible. The other major downside to this approach is that it *requires* a dedicated machine. If you an old laptop/gaming pc lying around or you wanna search for a [used machine](https://www.hardware-corner.net/refurbished-desktop-computers/), then awesome! Or if you wanna go full tilt and build a server rack, even better. All absolutely viable options. But a "main" machine and a server machine are required.
 
 Once you've decided which OS you want to use, your next (and last) major choice is which video streaming frontend would you like to use? The 3 main ones are Plex, Emby and Jellyfin. Here is an at-a-glance comparison. Next we'll take a look at what this graph actually means.
-FeaturesPlexEmbyJellyfinOpen SourceNoNoYesHardware TranscodingPaidPaidYesLive TV/DVRPaidPaidYesMultiple UsersYesYesYesOffline ViewingPaidPaidYesPodcastsYesYesw/PluginServer StatsPaidYesw/Plugin
+
+| **Features**         | **Plex** | **Emby** | **Jellyfin** |
+|----------------------|:--------:|:--------:|:------------:|
+| Open Source          |    No    |    No    |      Yes     |
+| Hardware Transcoding |   Paid   |   Paid   |      Yes     |
+| Live TV/DVR          |   Paid   |   Paid   |      Yes     |
+| Multiple Users       |    Yes   |    Yes   |      Yes     |
+| Offline Viewing      |   Paid   |   Paid   |      Yes     |
+| Podcasts             |    Yes   |    Yes   |   w/Plugin   |
+| Server Stats         |   Paid   |    Yes   |   w/Plugin   |
+
 ### Jellyfin
 
 The most obvious difference at a glance is that Jellyfin has zero paid options. It offers everything right up front free of charge. It's also open source and appears to keep in line with the other two without losing features. So why ever choose another option? Well the answer I've found is that, much like Linux, Jellyfin comes with a learning curve. Its not massive, but if you're trying to onboard less tech-savvy people like family and friends, it can be a challenge.
@@ -54,10 +64,7 @@ The other big thing that Plex locks behind a paywall is their mobile apps, altho
 
 If you're planning to use plex but aren't planning to use it on your phone or outside your home and share with users, there is very little reason to purchase the plex pass. Personally even if *are* planning to share it with users, I would hold off on buying the pass. Its worth the money if you need it, but its best to learn if you *do* need it first.
 
-If you would like to use Plex on Windows, follow this link [here](/posts/servarr-guide-pt1/).
-
-If you would like to use Jellyfin on Windows, follow this link here (Coming soon).
-
-If you would like to use Plex on Ubuntu Server, follow this link here (Coming soon).
-
+If you would like to use Plex on Windows, follow this link [here](/posts/servarr-guide-pt1/).  
+If you would like to use Jellyfin on Windows, follow this link here (Coming soon).  
+If you would like to use Plex on Ubuntu Server, follow this link here (Coming soon).  
 If you would like to use Jellyfin on Ubuntu Server, follow this link here (Coming soon).

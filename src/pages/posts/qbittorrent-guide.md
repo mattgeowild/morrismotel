@@ -5,7 +5,7 @@ slug: qbittorrent-guide
 date: 2022-02-22
 author: EgoDeer
 desc: "qBitTorrent is one of the most popular torrent downloaders. But how do you use it properly?"
-img: "https://i.ibb.co/4p8DpGG/Untitled-2-0-5x.png"
+img: "/images/qbittorrent-guide/thumb.png"
 imgWidth: 800
 imgHeight: 500
 tags:

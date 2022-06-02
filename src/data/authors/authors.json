@@ -1,7 +1,8 @@
 {
     "Cain": {
       "name": "Cain",
-      "image": "/src/data/authors/cain.png"
+      "image": "/src/data/authors/cain.png",
+      "desc": "A web developer and cybersecurity analyst by day and piracy guide writer by night, Cain has been writing (and coding) for Morris Motel since its inception."
     },
     "AnvilKilo": {
       "name": "AnvilKilo",

@@ -47,7 +47,7 @@ Now, lets set up D-fi. For this step you will need your ARL. If you do not have 
 
 Now enter the following command:
 
-d-fi -a PASTEARLHERE
+```d-fi -a PASTEARLHERE```
 
 Make sure to replace the last bit with your ARL. It should look like this once you hit enter.
 

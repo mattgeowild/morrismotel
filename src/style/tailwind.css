@@ -18,8 +18,13 @@
   h6,
   .logo-text {
     font-family: "Mabry Pro";
-    letter-spacing: -1px;
     text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  .logo-text {
+    letter-spacing: -1px;
   }
 
   .menu :where(li) > :where(*:not(ul)) {
@@ -34,6 +39,7 @@
 
   .prose :where(img):not(:where([class~="not-prose"] *)) {
     max-width: 50% !important;
+    border-radius: 10px;
   }
 
   .badge {
@@ -45,8 +51,10 @@
     --tw-bg-opacity: 0.1;
   }
 
-  .prose {
-    max-width: 75ch !important;
+  .ring {
+    -moz-background-clip: padding !important;
+    -webkit-background-clip: padding-box !important;
+    background-clip: padding-box !important;
   }
 }
 
@@ -54,13 +62,8 @@
   margin: 0px 12px;
 }
 
-@media (prefers-color-scheme: light) {
-  .shiki.github-dark {
-    display: none;
-  }
-}
-@media (prefers-color-scheme: dark) {
-  .shiki.github-light {
-    display: none;
-  }
+[class^="rounded"] {
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
 }

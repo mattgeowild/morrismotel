@@ -8,7 +8,7 @@
     <a href={`/posts/${post?.slug || post?.frontmatter?.slug}`}
       class="flex-none w-24 h-24 md:h-auto md:w-auto aspect-none md:aspect-w-19 md:aspect-h-1">
       <img
-        class="object-cover md:w-80 md:h-48 w-24 h-24 transition-opacity duration-300 rounded-lg drop-shadow group-hover:opacity-50"
+        class="object-cover md:w-80 md:h-48 w-24 h-24 transition-opacity duration-300 rounded-xl drop-shadow group-hover:opacity-50"
         alt={post?.title || post?.frontmatter?.title} src={(post?.img || post?.frontmatter?.img)
         ?? "/images/fallback.png" } />
     </a>

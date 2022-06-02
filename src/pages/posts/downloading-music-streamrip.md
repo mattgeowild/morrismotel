@@ -5,9 +5,7 @@ slug: downloading-music-streamrip
 date: 2022-02-22
 author: Cain
 desc: "There are quite a few methods to rip music from streaming services. Streamrip is arguably the best one out there. It supports Qobuz, Deezer, TIDAL, Soundcloud, and YouTube."
-img: "/images/downloading-music-streamrip/thumb.png"
-imgWidth: 800
-imgHeight: 500
+img: "/images/downloading-music-streamrip/thumb.jpg"
 tags:
   - music-piracy
 ---
@@ -26,10 +24,8 @@ There are quite a few methods to rip music from streaming services. Streamrip is
 
 **To open your command line:**
 
-On Windows, hit Ctrl+R and type in `cmd`, then hit enter.
-
-On Mac, hit Cmd+Space and type in `terminal`, then hit enter. Alternatively you can use [iTerm](https://iterm2.com/).
-
+On Windows, hit Ctrl+R and type in `cmd`, then hit enter.  
+On Mac, hit Cmd+Space and type in `terminal`, then hit enter. Alternatively you can use [iTerm](https://iterm2.com/).  
 On Linux, press Ctrl+Alt+T.
 
 Then, run `pip3 install streamrip --upgrade`. You should then be able to run `rip` and see the help page. If you do not see the help page, [visit the detailed installation instructions](https://github.com/nathom/streamrip/wiki#detailed-installation-instructions) on the GitHub repository.
@@ -45,7 +41,15 @@ You can rip a URL by using `rip url URL`. The URL does not need to be in quotati
 You can also pass a few different flags.
 
 First is `--max-quality`, and then a quality ID. Here are the available qualities:
-Quality IDAudio QualityAvailable Sources0128 kbps MP3 or AACDeezer, Tidal, SoundCloud (most of the time)1320 kbps MP3 or AACDeezer, Tidal, Qobuz, SoundCloud (rarely)216 bit, 44.1 kHz (CD)Deezer, Tidal, Qobuz, SoundCloud (rarely)324 bit, ≤ 96 kHzTidal (MQA), Qobuz, SoundCloud (rarely)424 bit, ≤ 192 kHzQobuz
+
+| **Quality ID** | **Audio Quality**     | **Available Sources**                        |
+|----------------|-----------------------|----------------------------------------------|
+| 0              | 128 kbps MP3 or AAC   | Deezer, Tidal, SoundCloud (most of the time) |
+| 1              | 320 kbps MP3 or AAC   | Deezer, Tidal, Qobuz, SoundCloud (rarely)    |
+| 2              | 16 bit, 44.1 kHz (CD) | Deezer, Tidal, Qobuz, SoundCloud (rarely)    |
+| 3              | 24 bit, ≤ 96 kHz      | Tidal (MQA), Qobuz, SoundCloud (rarely)      |
+| 4              | 24 bit, ≤ 192 kHz     | Qobuz                                        |
+
 Second is `--source`, which allows you to specify the source of the content, especially when searching for music. For example: `rip search --source tidal "song name here"`
 
 If you installed ffmpeg earlier, you can also convert the music to a different format using `--codec`, like mp3 or flac, etc.

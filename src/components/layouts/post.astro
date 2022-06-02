@@ -1,27 +1,32 @@
 ---
-  import BaseLayout from "./baselayout.astro";
-  import RelatedArticles from "../relatedArticles.astro";
-  import { getReadingTime } from '../../lib/readingtime.js';
-  import { dateFilter } from "../../lib/dateFilter.js";
-  const post = Astro.props;
+import BaseLayout from "./baselayout.astro";
+import RelatedArticles from "../relatedArticles.astro";
+import { getReadingTime } from '../../lib/readingtime.js';
+import { dateFilter } from "../../lib/dateFilter.js";
+import authorData from '../../data/authors/authors.json';
+
+const post = Astro.props;
+const author = authorData[post.content.author]
+
 ---
 
 <BaseLayout title={post.content.title} description={post.content.desc} image={post.content.img} post={true}>
-  <div class="hero h-80 rounded-2xl mb-10 overflow-hidden content-center text-white">
-    <img src={post.content.img} class="bg-cover" />
-    <div class="hero-overlay bg-black/80 rounded-2xl" />
+  <div class="hero h-80 rounded-2xl mb-10 text-white relative" style={`background-image: linear-gradient(rgba(0, 0, 0,
+    0.7), rgba(0, 0, 0, 0.7)), url('${post.content.img}')`}>
+    <!-- <div class="hero-overlay bg-black/80" /> -->
     <div class="text-center">
-      <h1 class="text-3xl md:text-5xl px-2 font-bold mb-3" set:html={post.content.title} />
-      <a class="font-bold text-xl px-2 hover:text-blue-500 transition-colors duration-200"
-        href={`/author/${post.content.author}`} set:html={`By ${post.content.author}`} />
-      <p class="text-lg px-2" set:html={dateFilter(post.content.date)} />
-      <p class="text-md px-2" set:html={getReadingTime(post.content.astro.html)} />
-      <ul class="flex justify-center">
+      <h1 class="text-3xl md:text-5xl font-bold mb-2" set:html={post.content.title} />
+      <p class="text-lg inline">
+        <a class="hover:text-blue-500 transition-colors duration-200" href={`/author/${author.name}`}>
+          Written by {author.name}
+        </a>on {dateFilter(post.content.date)}
+      </p>
+      <!-- <ul>
         {post.content.tags.map((tag) =>
-        <li class="float-left"><a href={`/tags/${tag}`}
-            class='hover:text-blue-500 transition-colors duration-200 mx-2 text-sm rounded-xl font-medium'>#{tag}</a>
+        <li><a href={`/tags/${tag}`}
+            class='hover:text-blue-500 transition-colors duration-200 mx-2 text-sm font-medium'>#{tag}</a>
         </li>)}
-      </ul>
+      </ul> -->
     </div>
   </div>
 
@@ -31,11 +36,23 @@
         <slot />
       </article>
     </div>
-    <hr class="mb-10">
-    <h2 class="text-3xl mb-1">Related Articles:</h2>
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-y-10">
-      <RelatedArticles post={post} />
-    </div>
 
+    <div class="card-side bg-neutral shadow-xl h-56 md:w-1/2 w-full">
+      <img class="rounded-xl max-h-full max-w-full block" src={author.image} alt={`${author.name}'s profile image'`}>
+      <div class="card-body">
+        <p class="text-neutral-content">About the Author</p>
+        <h2 class="card-title text-3xl">{author.name}</h2>
+        <p>{author?.desc}</p>
+        <div class="card-actions justify-end">
+          <button class="btn btn-primary"> <a href={`/author/${author.name}`}>All Posts</a></button>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h2 class="text-3xl mb-1">Related Articles:</h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-y-10">
+        <RelatedArticles post={post} />
+      </div>
+    </div>
   </section>
 </BaseLayout>

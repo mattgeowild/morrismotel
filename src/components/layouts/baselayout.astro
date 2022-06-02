@@ -6,13 +6,11 @@ import ThemeChange from "@components/ThemeChange";
 import Head from '@components/Head'
 const content = Astro.props;
 ---
+
 <html lang="en">
-<Head
-	title={content?.title}
-	desc={content?.desc}
-	img={content?.img}
->	
-</Head>
+
+<Head title={content?.title} desc={content?.desc} img={content?.img} />
+
 <body class="flex flex-col items-center h-screen">
 	<div class="w-full max-w-6xl flex-grow">
 		<Navbar>
@@ -22,6 +20,7 @@ const content = Astro.props;
 			<slot />
 		</div>
 	</div>
-	<Footer />
 </body>
+<Footer />
+
 </html>
