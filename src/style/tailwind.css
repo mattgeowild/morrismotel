@@ -10,6 +10,7 @@
 }
 
 @layer utilities {
+
   h1,
   h2,
   h3,
@@ -27,7 +28,7 @@
     letter-spacing: -1px;
   }
 
-  .menu :where(li) > :where(*:not(ul)) {
+  .menu :where(li)> :where(*:not(ul)) {
     padding: 0.5rem;
     margin-right: 0.3rem;
     margin-left: 0.3rem;
@@ -37,8 +38,13 @@
     margin-bottom: 0.1em !important;
   }
 
+  @media (min-width: 1024px) {
+    .prose :where(img):not(:where([class~="not-prose"] *)) {
+      max-width: 50% !important;
+    }
+  }
+
   .prose :where(img):not(:where([class~="not-prose"] *)) {
-    max-width: 50% !important;
     border-radius: 10px;
   }
 

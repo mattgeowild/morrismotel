@@ -1,7 +1,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
-  content: ["./src/**/*.{astro,html,svelte,vue,js,ts}", "./node_modules/flowbite/**/*.js"],
-  plugins: [require("@tailwindcss/typography"), require('flowbite/plugin')],
+  content: ["./src/**/*.{astro,html,svelte,vue,js,ts}"],
+  plugins: [require("@tailwindcss/typography")],
   theme: {
     extend: {
       fontFamily: {

@@ -101,7 +101,6 @@ Back to the terminal, type the following command:
     	-v /var/docker_data/matrix:/data \
     	-p 8008:8008 \
     	matrixdotorg/synapse:latest
-    	
 
 Once it's finished, type this: 
 

@@ -9,13 +9,17 @@ const latestPost = posts[0]
 ---
 
 <BaseLayout>
-  <div class="hero h-80 rounded-2xl mb-10 text-white" style={`background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('${latestPost.img}')`}>
-    <div class="hero-content text-center text-neutral-content">
+  <div class="h-80 rounded-2xl mb-10 text-white flex relative w-full bg-cover bg-center justify-center items-center"
+    style={`background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('${latestPost.img}');
+    background-repeat: no-repeat; background-position: center center; background-size: cover;`}>
+    <div class="text-center text-neutral-content">
       <div class="max-w-md">
         <h1 class="mb-2 text-4xl font-bold text-white"><a href={`/posts/${latestPost.slug}`}>{latestPost.title}</a></h1>
         <p>{latestPost.desc}</p>
         <h5 class="mb-4 mt-2 tracking-normal">MOST RECENT ARTICLE</h5>
-        <a class="btn btn-sm btn-primary mb-5" href={`/posts/${latestPost.slug}`}>Read</a>
+        <button type="button"
+          class="text-white bg-blue-700 hover:bg-blue-800 rounded-lg text-sm px-3 py-2 mb-2"><a
+            href={`/posts/${latestPost.slug}`}>Read</a></button>
       </div>
     </div>
   </div>
@@ -31,7 +35,7 @@ const latestPost = posts[0]
       {allTags.map(tag => (
       <div>
         <header class="border-b border-current mb-3"><a href={`/tags/${tag}`}
-            class='hover:text-accent transition-colors duration-200 text-xl font-medium'>
+            class='hover:text-blue-600 dark:hover:text-blue-500 transition-colors duration-200 text-xl font-medium'>
             <h2 class="inline mr-4">#{tag}</h2>
             <p class="inline text-sm">{posts.filter((post) => post.tags.includes(tag)).length} {posts.filter((post) =>
               post.tags.includes(tag)).length < 2 ? 'article' : 'articles' }</p>
