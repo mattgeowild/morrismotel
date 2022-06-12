@@ -16,7 +16,8 @@
     },
     "EgoDeer": {
       "name": "EgoDeer",
-      "image": "/src/data/authors/egodeer.jpg"
+      "image": "/src/data/authors/egodeer.jpg",
+      "desc": "Your friendly neighborhood EgoDeer."
     }
   }
   
